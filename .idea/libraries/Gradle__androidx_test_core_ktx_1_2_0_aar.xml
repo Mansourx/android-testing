@@ -6,6 +6,8 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e23afc594598e77a7d8c973220f4f679/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/core-ktx/1.2.0/3bc9409c4a821744dff9148e34587301d2997458/core-ktx-1.2.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
