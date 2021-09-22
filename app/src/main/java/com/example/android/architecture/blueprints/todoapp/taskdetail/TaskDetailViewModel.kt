@@ -28,7 +28,9 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel for the Details screen.
  */
-class TaskDetailViewModel(private val tasksRepository: TasksRepository) : ViewModel() {
+class TaskDetailViewModel(
+    private val tasksRepository: TasksRepository
+) : ViewModel() {
 
     private val _taskId = MutableLiveData<String>()
 
@@ -96,6 +98,7 @@ class TaskDetailViewModel(private val tasksRepository: TasksRepository) : ViewMo
         }
     }
 
+
     fun refresh() {
         // Refresh the repository and the task will be updated automatically.
         _task.value?.let {
@@ -110,12 +113,12 @@ class TaskDetailViewModel(private val tasksRepository: TasksRepository) : ViewMo
     private fun showSnackbarMessage(@StringRes message: Int) {
         _snackbarText.value = Event(message)
     }
+}
 
-    @Suppress("UNCHECKED_CAST")
-    class TasksViewModelFactory(
-        private val tasksRepository: TasksRepository) : ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>) =
-            (TaskDetailViewModel(tasksRepository) as T)
-    }
-
+@Suppress("UNCHECKED_CAST")
+class TaskDetailViewModelFactory (
+    private val tasksRepository: TasksRepository
+) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) =
+        (TaskDetailViewModel(tasksRepository) as T)
 }
